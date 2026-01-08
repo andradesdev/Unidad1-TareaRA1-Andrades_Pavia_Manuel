@@ -3,6 +3,9 @@ site_author: Manuel Andrades Pavia
 site_description: Documentación de la práctica de Entornos de Desarrollo y Seguridad
 site_url: https://andradesdev.github.io/Unidad1-TareaRA1-Andrades_Pavia_Manuel/
 
+docs_dir: docs
+site_dir: site
+
 
 theme:
   name: material

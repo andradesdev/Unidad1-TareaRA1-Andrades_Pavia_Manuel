@@ -26,7 +26,14 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Build and deploy MkDocs
+      - name: Build MkDocs (debug)
+        working-directory: src
+        run: |
+          mkdocs build
+          ls -la
+          ls -la site
+
+      - name: Deploy to gh-pages
         working-directory: src
         run: |
           mkdocs gh-deploy --force
