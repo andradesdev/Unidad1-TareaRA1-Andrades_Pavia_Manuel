@@ -1,4 +1,4 @@
-name: Deploy MkDocs
+name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
@@ -6,10 +6,12 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,14 +28,20 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Build MkDocs (debug)
+      - name: Build MkDocs
         working-directory: src
         run: |
-          mkdocs build
-          ls -la
-          ls -la site
+          mkdocs build --site-dir site
 
-      - name: Deploy to gh-pages
-        working-directory: src
-        run: |
-          mkdocs gh-deploy --force
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: src/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
