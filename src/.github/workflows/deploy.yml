@@ -1,4 +1,6 @@
 name: Deploy MkDocs
+working-directory: src
+run: mkdocs build
 
 on:
   push:
