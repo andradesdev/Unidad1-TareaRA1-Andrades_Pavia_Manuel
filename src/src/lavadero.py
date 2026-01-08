@@ -82,7 +82,7 @@ class Lavadero:
         :raises ValueError: Si se intenta encerar sin secado a mano (Requisito 2).
         """
         if self.__ocupado:
-            raise RuntimeError("No se puede iniciar un nuevo lavado mientras el lavadero está ocupado")
+            raise ValueError("No se puede iniciar un nuevo lavado mientras el lavadero está ocupado")
         
         if not secado_a_mano and encerado:
             raise ValueError("No se puede encerar el coche sin secado a mano")
@@ -105,10 +105,10 @@ class Lavadero:
             coste_lavado += 1.50 
         
         if self.__secado_a_mano:
-            coste_lavado += 1.20 
+            coste_lavado += 1.00 
             
         if self.__encerado:
-            coste_lavado += 1.00 
+            coste_lavado += 1.20 
             
         self.__ingresos += coste_lavado
         return coste_lavado
@@ -146,17 +146,18 @@ class Lavadero:
         
         elif self.__fase == self.FASE_RODILLOS:
             if self.__secado_a_mano:
-                self.__fase = self.FASE_SECADO_AUTOMATICO 
-
-            else:
                 self.__fase = self.FASE_SECADO_MANO
+            else:
+                self.__fase = self.FASE_SECADO_AUTOMATICO
         
         elif self.__fase == self.FASE_SECADO_AUTOMATICO:
             self.terminar()
         
         elif self.__fase == self.FASE_SECADO_MANO:
-
-            self.terminar() 
+            if self.__encerado:
+                self.__fase = self.FASE_ENCERADO
+            else:
+                self.terminar() 
         
         elif self.__fase == self.FASE_ENCERADO:
             self.terminar() 
