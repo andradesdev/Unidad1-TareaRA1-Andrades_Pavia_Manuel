@@ -1,6 +1,8 @@
 site_name: Lavadero de Coches - Unidad 1
 site_author: Manuel Andrades Pavia
 site_description: Documentación de la práctica de Entornos de Desarrollo y Seguridad
+site_url: https://andradesdev.github.io/Unidad1-TareaRA1-Andrades_Pavia_Manuel/
+
 
 theme:
   name: material
