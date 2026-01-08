@@ -1,0 +1,15 @@
+site_name: Lavadero de Coches - Unidad 1
+site_author: Manuel Andrades Pavia
+site_description: Documentación de la práctica de Entornos de Desarrollo y Seguridad
+
+theme:
+  name: material
+  language: es
+
+nav:
+  - Inicio: index.md
+  - Elementos de Python: elementos_python.md
+  - Ejecución y Depuración: ejecucion_y_depuracion.md
+  - Pruebas: pruebas.md
+  - Ejecución en Sandbox: sandbox.md
+  - Reflexión sobre Seguridad: reflexion.md
