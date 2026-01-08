@@ -1,6 +1,4 @@
 name: Deploy MkDocs
-working-directory: src
-run: mkdocs build
 
 on:
   push:
@@ -13,8 +11,10 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -22,9 +22,11 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
+        working-directory: src
         run: |
           pip install -r requirements.txt
 
-      - name: Deploy
+      - name: Build and deploy MkDocs
+        working-directory: src
         run: |
           mkdocs gh-deploy --force
