@@ -24,19 +24,17 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        working-directory: src
         run: |
           pip install -r requirements.txt
 
       - name: Build MkDocs
-        working-directory: src
         run: |
-          mkdocs build --site-dir site
+          mkdocs build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: src/site
+          path: site
 
   deploy:
     needs: build
