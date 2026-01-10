@@ -1,4 +1,4 @@
-# Lavadero de Coches – Unidad 1
+# Unidad 1 - Tarea RA1
 
 ## Elementos de Python
 En esta práctica se ha desarrollado una aplicación en Python que simula el funcionamiento de un lavadero de coches mediante un autómata de estados.
