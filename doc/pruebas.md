@@ -49,14 +49,16 @@ Se comprueba que se lanzan excepciones cuando se incumplen las reglas definidas:
 
 Encerado sin secado a mano:
 
-```def test2_excepcion_encerado_sin_secado(self):
+```
+def test2_excepcion_encerado_sin_secado(self):
     with self.assertRaises(ValueError):
         self.lavadero.hacerLavado(False, False, True)
 ```
 
 Lavadero ocupado:
 
-```def test3_excepcion_lavadero_ocupado(self):
+```
+def test3_excepcion_lavadero_ocupado(self):
     self.lavadero.hacerLavado(False, False, False)
     with self.assertRaises(RuntimeError):
         self.lavadero.hacerLavado(False, False, False)
@@ -68,7 +70,8 @@ Estas pruebas aseguran que las restricciones del sistema se respetan correctamen
 
 Se valida que el importe cobrado corresponde a las opciones seleccionadas:
 
-```def test5_ingresos_secado_mano(self):
+```
+def test5_ingresos_secado_mano(self):
     self.lavadero.hacerLavado(False, True, False)
     while self.lavadero.ocupado:
         self.lavadero.avanzarFase()
@@ -81,16 +84,17 @@ También se prueban combinaciones más complejas, como prelavado + secado + ence
 
 Para comprobar el orden correcto de las fases, se utiliza el método ```auxiliar ejecutar_y_obtener_fases():```
 
-```def test9_flujo_rapido_sin_extras(self):
+```
+def test9_flujo_rapido_sin_extras(self):
     fases_esperadas = [0, 1, 3, 4, 5, 6, 0]
     fases_obtenidas = self.lavadero.ejecutar_y_obtener_fases(False, False, False)
 ```
-```    self.assertEqual(
-        fases_obtenidas,
-        fases_esperadas,
-        f"Secuencia de fases incorrecta.\n"
-        f"Esperadas: {fases_esperadas}\n"
-        f"Obtenidas: {fases_obtenidas}"
+```self.assertEqual(
+    fases_obtenidas,
+    fases_esperadas,
+    f"Secuencia de fases incorrecta.\n"
+    f"Esperadas: {fases_esperadas}\n"
+    f"Obtenidas: {fases_obtenidas}"
     )
 ```
 
