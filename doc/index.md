@@ -9,8 +9,6 @@ El código fuente se encuentra en la carpeta `src/`, donde se definen:
 - El control de ingresos
 - Las reglas de negocio
 
-➡️ Ver más detalles en la sección *Elementos de Python*.
-
 ---
 
 ## Ejecución y Depuración
@@ -26,18 +24,18 @@ Se adjuntan capturas de pantalla a pantalla completa mostrando el terminal y el 
 ---
 
 ## Pruebas
-Se han desarrollado pruebas unitarias con `unittest` para validar:
+Se han desarrollado pruebas unitarias con unittest para validar:
 - Estado inicial del lavadero
 - Reglas de negocio
 - Cálculo de ingresos
 - Flujo correcto de fases
 
-Las pruebas permitieron detectar errores que fueron corregidos posteriormente.
+Las pruebas permitieron detectar errores que fueron corregidos después.
 
 ---
 
 ## Ejecución en Sandbox
-La aplicación se ha ejecutado en un entorno aislado utilizando **Firejail** en una máquina virtual Ubuntu.
+La aplicación se ha ejecutado en un entorno aislado utilizando Firejail en una máquina virtual Ubuntu.
 
 Esto permite limitar el acceso al sistema y mejorar la seguridad durante la ejecución.
 
